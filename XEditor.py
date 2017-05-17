@@ -195,21 +195,21 @@ class Highlighter(QSyntaxHighlighter):
         keywordFormat.setForeground(Qt.darkBlue)
         keywordFormat.setFontWeight(QFont.Bold)
 
-        keywordPatterns = ["\\bchar\\b", "\\bclass\\b", "\\bconst\\b",
-                "\\bdouble\\b", "\\benum\\b", "\\bexplicit\\b", "\\bfriend\\b",
-                "\\binline\\b", "\\bint\\b", "\\blong\\b", "\\bnamespace\\b",
-                "\\boperator\\b", "\\bprivate\\b", "\\bprotected\\b",
-                "\\bpublic\\b", "\\bshort\\b", "\\bsignals\\b", "\\bsigned\\b",
-                "\\bslots\\b", "\\bstatic\\b", "\\bstruct\\b",
-                "\\btemplate\\b", "\\btypedef\\b", "\\btypename\\b",
-                "\\bunion\\b", "\\bunsigned\\b", "\\bvirtual\\b", "\\bvoid\\b",
-                "\\bvolatile\\b"]
+        keywordPatterns = ["import", "if", "else",
+                "elif", "\try", "print", "yield",
+                "pow", "False", "True", "class",
+                "finally", "is", "return",
+                "None", "continue", "for", "lambda",
+                "def", "from", "nonlocal",
+                "while", "and", "del",
+                "global", "not", "with", "as",
+                "or","assert","pass","break","except","in","raise"]
 
         self.highlightingRules = [(QRegExp(pattern), keywordFormat)
                 for pattern in keywordPatterns]
 
         classFormat = QTextCharFormat()
-        classFormat.setFontWeight(QFont.Bold)
+        
         classFormat.setForeground(Qt.darkMagenta)
         self.highlightingRules.append((QRegExp("\\bQ[A-Za-z]+\\b"),
                 classFormat))
